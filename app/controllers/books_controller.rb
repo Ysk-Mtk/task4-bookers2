@@ -1,8 +1,5 @@
 class BooksController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update]
-  def new
-    @book = Book.new
-  end
   
   # 投稿データの保存
   def create
@@ -25,6 +22,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @book_comment = BookComment.new
   end
   
   def destroy
